@@ -2,7 +2,12 @@
 These projects are developed for me to better understand programming techniques and ideas that I am able to explore and implement throughout my never-ending code journey.
 
 ## Projects Include:
-- [Data Structures](https://github.com/ZimCodes/self_learning_projects#Data_Structures)
+- [Data Structures](https://github.com/ZimCodes/self_learning_projects#data-structures)
+- [Search Algorithms](https://github.com/ZimCodes/self_learning_projects#search-algorithms)
+- [Sorting Algorithms](https://github.com/ZimCodes/self_learning_projects#sorting-algorithms)
+- [Behavioral Patterns](https://github.com/ZimCodes/self_learning_projects#behavioral-patterns)
+- [Creational Patterns](https://github.com/ZimCodes/self_learning_projects#creational-patterns)
+- [Structural Patterns](https://github.com/ZimCodes/self_learning_projects#structural-patterns)
 
 ### Data Structures
 - Heap Tree
