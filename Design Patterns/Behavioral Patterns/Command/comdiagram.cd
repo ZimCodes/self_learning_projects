@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Invoker">
+    <Position X="4.594" Y="0.583" Height="0.385" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Command">
+    <Position X="9.74" Y="0.708" Height="0.385" Width="0.867" />
+  </Comment>
+  <Comment CommentText="Receiver">
+    <Position X="4.521" Y="3.51" Height="0.385" Width="0.867" />
+  </Comment>
+  <Comment CommentText="Concrete Commands">
+    <Position X="9.615" Y="3.156" Height="0.406" Width="1.46" />
+  </Comment>
+  <Comment CommentText="The Invoker issues a Command for the Receiver to accomplish a specified action.">
+    <Position X="0.844" Y="4.062" Height="0.75" Width="1.7" />
+  </Comment>
+  <Comment CommentText="When you click a button on a remote controller, it invokes a command to a receiver. In this case, the command is to turn off/on the lights.">
+    <Position X="0.81" Y="2.375" Height="1.188" Width="1.794" />
+  </Comment>
+  <Comment CommentText="SUMMARY">
+    <Position X="1.258" Y="1.875" Height="0.344" Width="0.96" />
+  </Comment>
+  <Class Name="Command.ChangeColorCommand" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ChangeColorCommand.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="light" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Command.Light">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAgAAAAAAAAAACAAAA=</HashCode>
+      <FileName>Light.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Command.LightOnCommand" BaseTypeListCollapsed="true">
+    <Position X="10.5" Y="3.75" Width="1.5" />
+    <AssociationLine Name="light" Type="Command.Light" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="10.5" Y="4.494" />
+        <Point X="10.312" Y="4.494" />
+        <Point X="10.312" Y="3.688" />
+        <Point X="6.177" Y="3.688" />
+        <Point X="6.177" Y="3.897" />
+        <Point X="5.948" Y="3.897" />
+        <Point X="5.948" Y="4.133" />
+        <Point X="5.75" Y="4.133" />
+        <Point X="5.75" Y="4.188" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>LightOnCommand.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="light" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Command.Program" Collapsed="true">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Command.RemoteController">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="Command.RemoteController.LightStatus" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>RemoteController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AIAACAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAABAA=</HashCode>
+      <FileName>RemoteController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="command" />
+    </ShowAsAssociation>
+  </Class>
+  <Interface Name="Command.ICommand">
+    <Position X="9.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ICommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

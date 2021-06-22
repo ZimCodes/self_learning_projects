@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Colleague">
+    <Position X="2.01" Y="0.5" Height="0.438" Width="0.815" />
+  </Comment>
+  <Comment CommentText="Mediator">
+    <Position X="5.917" Y="0.5" Height="0.427" Width="0.7" />
+  </Comment>
+  <Comment CommentText="The Colleagues can only send messsages to the Mediator. The mediator then responds based off the message they've received. The colleague never interact with each other.">
+    <Position X="9.604" Y="3.583" Height="1.229" Width="1.992" />
+  </Comment>
+  <Comment CommentText="In this case, the Soldiers only speak directly to the King. The King then responds based on these messages.">
+    <Position X="9.563" Y="5.021" Height="0.906" Width="2.075" />
+  </Comment>
+  <Class Name="Mediator.King" BaseTypeListCollapsed="true">
+    <Position X="5.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAIAAEEAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>King.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Mediator.KingSoldier">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KingSoldier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mediator.NeighborSoldier">
+    <Position X="2.75" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>NeighborSoldier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mediator.Program" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Mediator.Soldier">
+    <Position X="1.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAEAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Soldier.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="king" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Mediator.IColleague">
+    <Position X="1.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IColleague.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Mediator.IMediator&lt;T&gt;">
+    <Position X="5.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAEEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IMediator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

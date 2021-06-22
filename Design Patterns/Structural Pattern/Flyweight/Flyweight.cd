@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Use sharing to support large numbers of fine-grained objects efficiently. Each Flyweight cannot stand on its own. Any attributes that would make sharing impossible must be supplied by the client whenever a request is made of the Flyweight.">
+    <Position X="7.395" Y="5.032" Height="1.062" Width="3.658" />
+  </Comment>
+  <Comment CommentText="Flyweight">
+    <Position X="2.495" Y="0.5" Height="0.354" Width="0.898" />
+  </Comment>
+  <Comment CommentText="FlyweightFactory">
+    <Position X="5.87" Y="0.844" Height="0.438" Width="1.221" />
+  </Comment>
+  <Comment CommentText="Lets say you want to spawn different colorful butterflies at different positions.&#xD;&#xA;---------------------------------------------------&#xD;&#xA;Intrinsic State- the butterfly's color might be the same as its brothers and sisters. Therefore there is no point in creating a new butterfly of the same color. I can share the info from other butterflies of the same color to create them.&#xD;&#xA;---------------------------------------------------&#xD;&#xA;Extrinsic State - the butterfly's spawn location will never be in the same location as the other butterflies. Therefore I will always create a new position for the butterfly to spawn in.&#xD;&#xA;">
+    <Position X="8.214" Y="1.677" Height="2.219" Width="2.929" />
+  </Comment>
+  <Comment CommentText="INTENT">
+    <Position X="6.036" Y="5.354" Height="0.333" Width="0.773" />
+  </Comment>
+  <Class Name="Flyweight.Beetle">
+    <Position X="1.25" Y="3.5" Width="1.5" />
+    <Members>
+      <Method Name="Beetle" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Beetle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Flyweight.Butterfly">
+    <Position X="3.25" Y="3.5" Width="1.5" />
+    <Members>
+      <Method Name="Butterfly" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Butterfly.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Flyweight.Insect">
+    <Position X="2.25" Y="1" Width="1.5" />
+    <Members>
+      <Method Name="Insect" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAEAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Insect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Flyweight.insectFactory">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAAAAAAAQAAAAAAAEAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>insectFactory.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="insects" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Flyweight.Program" Collapsed="true">
+    <Position X="9.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

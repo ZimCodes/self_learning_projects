@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Decorator pattern allows a user to add new functionality to an existing object without altering its structure.">
+    <Position X="10.094" Y="4.072" Height="0.865" Width="2.252" />
+  </Comment>
+  <Comment CommentText="Component">
+    <Position X="5.604" Y="0.583" Height="0.448" Width="0.992" />
+  </Comment>
+  <Comment CommentText="Concrete Components">
+    <Position X="7.937" Y="1.573" Height="0.448" Width="1.45" />
+  </Comment>
+  <Class Name="Decorator.Bacon" Collapsed="true">
+    <Position X="2" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Bacon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Burger" Collapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Burger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Cheese" Collapsed="true">
+    <Position X="4.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cheese.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Decorator" Collapsed="true">
+    <Position X="3" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decorator.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="sandwich" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Decorator.Program" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Sandwich" Collapsed="true">
+    <Position X="5.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Sandwich.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Decorator.Submarine" Collapsed="true">
+    <Position X="6.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAQBAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Submarine.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

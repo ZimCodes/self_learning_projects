@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Caretaker">
+    <Position X="7.135" Y="0.5" Height="0.344" Width="0.804" />
+  </Comment>
+  <Comment CommentText="Originator">
+    <Position X="1.74" Y="0.5" Height="0.427" Width="0.867" />
+  </Comment>
+  <Comment CommentText="Memento">
+    <Position X="4.177" Y="0.604" Height="0.49" Width="0.919" />
+  </Comment>
+  <Comment CommentText="The Memento class holds the states of a specified object. The Originator saves a state of an object and restore the state of an object. The Caretaker is responsible for the memento's safekeeping.">
+    <Position X="9.198" Y="3.521" Height="1.333" Width="2.179" />
+  </Comment>
+  <Class Name="Memento.Caretaker">
+    <Position X="6.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAAAAAACAAAAAAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Caretaker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="mementos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Memento.Memento">
+    <Position X="4" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Memento.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Memento.Program" Collapsed="true">
+    <Position X="10.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Memento.SaveAction">
+    <Position X="1.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAQAAgAAAAAAAAABAAAABAAAAAA=</HashCode>
+      <FileName>SaveAction.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

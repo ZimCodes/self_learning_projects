@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Abstract Factory">
+    <Position X="2.49" Y="0.531" Height="0.333" Width="1.095" />
+  </Comment>
+  <Comment CommentText="Concrete Factory&#xD;&#xA;&lt;--                     --&gt;">
+    <Position X="2.364" Y="1.864" Height="0.427" Width="1.283" />
+  </Comment>
+  <Comment CommentText="Abstract Product">
+    <Position X="7.937" Y="0.583" Height="0.323" Width="1.127" />
+  </Comment>
+  <Comment CommentText="Concrete Product">
+    <Position X="7.885" Y="1.969" Height="0.333" Width="1.231" />
+  </Comment>
+  <Comment CommentText="SUMMARY">
+    <Position X="5.373" Y="0.5" Height="0.333" Width="0.825" />
+  </Comment>
+  <Comment CommentText="IRestaurant &amp; IBurger ARE the interfaces used for creating families of related objects. [NOTE:] IRestaurant &amp; IBurger are main goals of the Abstract Factory Pattern. &#xD;&#xA;&#xD;&#xA;The Factory Method pattern includes only one factory method, while Abstract Factory include Two or more factory methods (in this case, CreateBurger() &amp; CreateMilkshake()); &#xD;&#xA;------------------------------&#xD;&#xA;&#xD;&#xA;Since IRestaurant includes methods &quot;CreateBurger()&quot; &amp; &quot;CreateMilkshake()&quot;, Concrete classes such as &quot;McDonalds&quot;, &quot;BurgerKing&quot;, and even &quot;Wendy's&quot; can be created. These concrete classes, just like in real life, are capable of making burgers and milkshakes.&#xD;&#xA;&#xD;&#xA;In the future, more concrete classes (restaurants) can be created as long as they can make burgers &amp; milkshakes. &#xD;&#xA;&#xD;&#xA;">
+    <Position X="4.966" Y="0.948" Height="5.031" Width="1.825" />
+  </Comment>
+  <Comment CommentText="INTENT --&gt;">
+    <Position X="6.987" Y="4.167" Height="0.375" Width="0.856" />
+  </Comment>
+  <Comment CommentText="Provide an interface for creating families of related or dependent objects w/o specifying their concrete classes.">
+    <Position X="8.018" Y="3.906" Height="0.948" Width="2.033" />
+  </Comment>
+  <Class Name="AbstractFactoryPattern.Program" Collapsed="true">
+    <Position X="10.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AbstractFactoryPattern.BurgerKing" BaseTypeListCollapsed="true">
+    <Position X="1.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAQ=</HashCode>
+      <FileName>BurgerKing.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AbstractFactoryPattern.KingBurger" BaseTypeListCollapsed="true">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>KingBurger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AbstractFactoryPattern.McBurger" BaseTypeListCollapsed="true">
+    <Position X="8.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>McBurger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="AbstractFactoryPattern.McDonalds" BaseTypeListCollapsed="true">
+    <Position X="3.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAQ=</HashCode>
+      <FileName>McDonalds.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Interface Name="AbstractFactoryPattern.IBurger" Collapsed="true">
+    <Position X="7.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IBurger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="AbstractFactoryPattern.IRestaurant" Collapsed="true">
+    <Position X="2.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAQ=</HashCode>
+      <FileName>IRestaurant.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

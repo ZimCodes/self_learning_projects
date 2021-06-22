@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Product">
+    <Position X="2.312" Y="0.948" Height="0.375" Width="0.783" />
+  </Comment>
+  <Comment CommentText="Concrete Products">
+    <Position X="2.073" Y="3.094" Height="0.344" Width="1.22" />
+  </Comment>
+  <Comment CommentText="Concrete Creator">
+    <Position X="8.385" Y="3.229" Height="0.302" Width="1.21" />
+  </Comment>
+  <Comment CommentText="Creator">
+    <Position X="8.625" Y="1.177" Height="0.344" Width="0.7" />
+  </Comment>
+  <Comment CommentText="product = FactoryMethod()">
+    <Position X="10.385" Y="2.354" Height="0.427" Width="1.804" />
+  </Comment>
+  <Comment CommentText="--&gt; return new ConcreteProduct">
+    <Position X="9.959" Y="4.75" Height="0.396" Width="2.22" />
+  </Comment>
+  <Comment CommentText="The Product is the objects. While the Creator displays HOW  I want to instantiate each product.&#xD;&#xA;&#xD;&#xA;In this case, I want to create instances of an animal randomly. ">
+    <Position X="5.531" Y="4.583" Height="1.302" Width="2.012" />
+  </Comment>
+  <Comment CommentText="SUMMARY">
+    <Position X="6.018" Y="4.104" Height="0.375" Width="1.085" />
+  </Comment>
+  <Comment CommentText="INTENT">
+    <Position X="6.029" Y="1.781" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Let Subclasses of an interface decide which other classes to instantiate.">
+    <Position X="5.549" Y="2.312" Height="0.948" Width="1.69" />
+  </Comment>
+  <Class Name="Factory.Program" Collapsed="true">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Factory.Cat" BaseTypeListCollapsed="true">
+    <Position X="1" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAA=</HashCode>
+      <FileName>Cat.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Factory.Horse" BaseTypeListCollapsed="true">
+    <Position X="3" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAA=</HashCode>
+      <FileName>Horse.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Factory.RandomAnimalFactory">
+    <Position X="8.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RandomAnimalFactory.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Factory.IAnimal">
+    <Position X="2" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIIAAA=</HashCode>
+      <FileName>IAnimal.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Factory.IAnimalFactory">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAnimalFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

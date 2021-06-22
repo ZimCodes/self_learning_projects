@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="This pattern creates a class that contains group of its own objects. This class provides ways to modify its group of same objects.">
+    <Position X="13.219" Y="5.893" Height="1.083" Width="1.7" />
+  </Comment>
+  <Comment CommentText="Leaf">
+    <Position X="5.302" Y="3.208" Height="0.323" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Leaf">
+    <Position X="7.656" Y="3.187" Height="0.291" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Leaf">
+    <Position X="12.083" Y="3.396" Height="0.302" Width="0.7" />
+  </Comment>
+  <Comment CommentText="Composite">
+    <Position X="9.875" Y="3.281" Height="0.375" Width="0.804" />
+  </Comment>
+  <Comment CommentText="Component">
+    <Position X="8.25" Y="0.74" Height="0.417" Width="0.96" />
+  </Comment>
+  <Comment CommentText="&lt;--&#xD;&#xA;forall g in children&#xD;&#xA;g.operation();">
+    <Position X="11.271" Y="5.56" Height="0.75" Width="1.7" />
+  </Comment>
+  <Class Name="Composite.Graphic">
+    <Position X="8" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAgAAAAIABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Graphic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Composite.Line">
+    <Position X="5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Line.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Composite.Picture">
+    <Position X="9.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAgAAAAIABAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Picture.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="graphics" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Composite.Program" Collapsed="true">
+    <Position X="14" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Composite.Rectangle">
+    <Position X="7.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rectangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Composite.Text">
+    <Position X="11.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Text.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
