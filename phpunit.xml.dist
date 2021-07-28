@@ -1,0 +1,19 @@
+<phpunit bootstrap="./autoload.php">
+    <testsuites>
+        <testsuite name="graphs">
+            <directory>tests/graphs</directory>
+        </testsuite>
+        <testsuite name="sorts">
+            <directory>tests/sorts</directory>
+        </testsuite>
+        <testsuite name="trees">
+            <directory>tests/trees</directory>
+        </testsuite>
+        <testsuite name="searches">
+            <directory>tests\searches</directory>
+        </testsuite>
+        <testsuite name="lists">
+            <directory>tests\lists</directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

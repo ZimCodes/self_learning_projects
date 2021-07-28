@@ -1,0 +1,12 @@
+{
+    "name": "zimcodes/self_learning",
+    "require-dev": {
+        "phpunit/phpunit": ">=9.5.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "ZimCodes\\Self_Learning\\": "src",
+            "ZimCodes\\Tests\\": "tests"
+        }
+    }
+}

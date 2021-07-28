@@ -1,4 +1,5 @@
-.pytest_cache/
-.idea/
-venv/
-*.iml
+.idea
+.phpunit.result.cache
+tools/
+vendor/
+*iml
