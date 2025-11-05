@@ -1,0 +1,33 @@
+---
+title: Prototype
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Prototype {
+        %% Prototype
+        class IClone {
+            <<interface>>
+            +clone() IClone
+        }
+        class Cell {
+            +clone() Cell
+        }
+        class Aphids {
+            +clone() Aphids
+        }
+        class Bacteria {
+            +clone() Bacteria
+        }
+    }
+
+    IClone <|.. Cell
+    IClone <|.. Aphids
+    IClone <|.. Bacteria
+    %% Client
+    Client --> IClone : uses prototype
+
+    %% Notes
+    note for Client "p = prototype->clone()"
+    note "Goal: Create new objects by cloning from existing ones and tweaking them."

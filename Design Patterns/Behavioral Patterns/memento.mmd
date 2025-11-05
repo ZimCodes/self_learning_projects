@@ -1,0 +1,43 @@
+---
+title: Memento
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Originator {
+        class Player {
+            -totalHealth: int
+            -totalMana: int
+            -companions: List~string~
+            +loadState(playerState: PlayerState)
+            +saveState() PlayerState
+        }
+    }
+    namespace Memento {
+        class PlayerState {
+            -totalHealth: int
+            -totalMana: int
+            -companions: List~string~
+            +Memento(totalHealth: int, totalMana: int,companions: List~string~)
+            +getTotalHealth() int
+            +getTotalMana() int
+            +getCompanions() List~string~
+        }
+    }
+    namespace Caretaker {
+        class Game {
+            -savePlayerSlot1: PlayerState
+            -save()
+            -load()
+        }
+    }
+
+    Player ..> PlayerState : creates
+    Game o--> PlayerState : has
+
+    %% Notes
+    note for Player "saveState(): return new PlayerState(totalHealth,totalMana,companions)"
+    note for Player "loadState(playerState): totalHealth = playerState->GetTotalHealth()..."
+    note for Game "Caretakers should NOT be able to use anything(methods too!) from Memento!!!"
+    note "Let an object save & restore its state without exposing its internal details."

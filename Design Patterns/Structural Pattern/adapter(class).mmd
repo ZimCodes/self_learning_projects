@@ -1,0 +1,40 @@
+---
+title: Class Adapter
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Target {
+        %% Target
+        class IBubblegum {
+            <<interface>>
+            +chew()
+        }
+    }
+    namespace Adaptee {
+        %% Adaptee
+        class IShip {
+            <<interface>>
+            +cruise()
+        }
+    }
+    namespace Adapter {
+        %% Adapter
+        class BubblegumShipAdapter {
+            +chew()
+        }
+    }
+
+    IBubblegum <|.. BubblegumShipAdapter
+    IShip <|.. BubblegumShipAdapter : implements
+    %% Client
+    Client --> IBubblegum : uses
+
+    %% Notes
+    note for BubblegumShipAdapter "chew(): this->cruise()"
+    note "Goal: Allows incompatible interfaces to work together."
+    note "Class Adapter implements interfaces to make them compatible"
+    note "Target: The interface the Client uses"
+    note "Adaptee: The interface that needs to be adapted"
+    note "Adapter: The class that makes the interfaces compatible"

@@ -1,0 +1,42 @@
+---
+title: Object Adapter
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Target {
+        %% Target
+        class IBubblegum {
+            <<interface>>
+            +chew()
+        }
+    }
+    namespace Adaptee {
+        %% Adaptee
+        class IShip {
+            <<interface>>
+            +cruise()
+        }
+    }
+    namespace Adapter {
+        %% Adapter
+        class BubblegumShipAdapter {
+            #ship: IShip
+            +chew()
+        }
+    }
+
+    IBubblegum <|.. BubblegumShipAdapter
+    %% Client
+    Client --> IBubblegum : uses
+    %% Miscs
+    BubblegumShipAdapter o--> IShip : has a
+
+    %% Notes
+    note for BubblegumShipAdapter "chew(): ship->cruise()"
+    note "Goal: Allows incompatible interfaces to work together."
+    note "Object Adapter uses aggregation to make interfaces compatible"
+    note "Target: The interface the Client expects use"
+    note "Adaptee: The interface that needs to be adapted"
+    note "Adapter: The class that makes the interfaces compatible"

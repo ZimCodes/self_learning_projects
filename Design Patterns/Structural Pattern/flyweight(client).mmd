@@ -1,0 +1,60 @@
+---
+title: Flyweight (Client) 
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+	
+    
+	namespace Flyweight {
+		%% SharedFlyweight
+		class IInsectType {
+			<<interface>>
+			+move(position: Vector, newPosition: Vector)
+		}
+		class InsectType {
+			-name: string
+			-color: string
+			-canMetamorphosize: bool
+			+move(position: Vector, newPosition: Vector)
+		}
+		%% UnsharedFlyweight
+		class SpecialInsectType {
+			-canExplode: bool
+			-scentificName: string
+			+move(position: Vector, newPosition: Vector)
+		}
+	}
+	namespace FlyweightFactory {
+		%% FlyweightFactory
+		class InsectTypeFactory {
+			-insectTypes: List~IInsectType~
+			+getInsectType(name: string, color: string, canMetamorphosize: bool) InsectType
+			+createSpecialInsectType(latinName: string, canExplode: bool) SpecialInsectType
+		}	
+	}
+	%% Client
+    class Client {
+        -insects: List~IInsectType~
+        -positions: List~Vector~
+        +addInsect(position:Vector, name: string, color: string, canMetamorphosize: bool)
+        +addSpecialInsect(position:Vector, latinName: string, canExplode: bool)
+        +move()
+    }
+	
+	
+    IInsectType <|.. InsectType
+    IInsectType <|.. SpecialInsectType
+    Client --> IInsectType : uses
+    Client --> InsectTypeFactory : uses
+    %% Miscs. 
+    InsectTypeFactory o--> IInsectType : has many
+    
+    %% Notes
+	note for InsectTypeFactory "addInsectType(): if insectTypes[key] == null\n insectType.add(new InsectType(...))"
+	note "Goal: Minimize memory usage by sharing intrinsic states across similar objects, and keeping extrinsic states outside and supplied by the client/context."
+    note "Intrinsic state: shared, immutable, heavy data"
+    note "Extrinsic state: unique, mutable, lightweight data"
+    note "Flyweight is about sharing, NOT inheritance! Do NOT subclass Insect."
+    note "You can create classes that doesn't share. 'SpecialInsectType'" 

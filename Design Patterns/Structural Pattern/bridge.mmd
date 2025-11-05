@@ -1,0 +1,46 @@
+---
+title: Bridge
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+	namespace Abstraction {
+		%% Abstraction
+		class IDoor {
+			<<interface>>
+			-impl: IMaterial
+			+applyMaterial()
+		}
+		class RevolvingDoor
+		class DutchDoor
+		class RollerDoor
+	}
+    namespace Implementation {
+        %% Implementation
+        class IMaterial {
+            <<interface>>
+            +implementMaterial()
+        }
+        class Glass
+        class Wood
+        class Steel
+    }
+
+    IDoor <|.. RevolvingDoor
+    IDoor <|.. DutchDoor
+    IDoor <|.. RollerDoor
+    IMaterial <|.. Glass
+    IMaterial <|.. Wood
+    IMaterial <|.. Steel
+    %% Client
+    Client --> IDoor : uses
+    %% Misc
+    IDoor o--> IMaterial : has a
+
+    %% Notes
+    note for IDoor "applyMaterial(): impl->implementMaterial()"
+    note "Goal: Lets different abstractions be paired with different implementations, so both can evolve independently"
+    note "Abstraction: What the client sees & uses"
+    note "Implementation: defines how it's done"
+    note "Tip: If you suffer a 'class explosion', use this pattern!"

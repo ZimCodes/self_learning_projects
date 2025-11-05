@@ -1,0 +1,27 @@
+---
+title: Facade
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    class Checkout {
+        +checkoutItems()
+    }
+    namespace Subsystem {
+        class Payment
+        class Inventory
+        class Shipping
+        class Notification
+        class Cart
+        class Discounts
+    }
+    Checkout ..> Payment
+    Checkout ..> Inventory
+    Checkout ..> Shipping
+    Checkout ..> Notification
+    Checkout ..> Cart
+    Checkout ..> Discounts
+    
+    note for Checkout "Facade"
+    note "Goal: Provides a simple interface to a complex subsystem, making it easier to use."

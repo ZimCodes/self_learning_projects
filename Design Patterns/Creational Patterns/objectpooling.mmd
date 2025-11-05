@@ -1,0 +1,39 @@
+---
+title: Object Pooling
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Object {
+        %% Object
+        class IObject {
+            <<interface>>
+            +setActive(isActive: bool)
+            +isActive() bool
+        }
+    }
+    namespace ObjectPool {
+        %% ObjectPool
+        class IObjectPool {
+            <<interface>>
+            +getObject() IObject
+        }
+        class Quiver {
+            -arrow: Arrow
+            -container: List~Arrow~
+            +Quiver()
+            +getObject() Arrow
+        }
+    }
+
+    IObject <|.. Arrow
+    IObjectPool <|.. Quiver
+    %% Client
+    Client --> IObjectPool : uses
+    Client --> IObject : uses
+
+    %% Notes
+    note for Quiver "Logic: Initialize a set of IObjects to add to pool"
+    note for Quiver "Logic: Only return an available IObject (isActive == false)"
+    note "Goal: Reuse objects instead of creating & destroying them repeatedly."

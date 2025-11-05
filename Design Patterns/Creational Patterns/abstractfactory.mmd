@@ -1,0 +1,58 @@
+---
+title: Abstract Factory
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Factory {
+        %% Factories
+        class IRestaurant {
+            <<interface>>
+            +createMilkshake() IMilkshake
+            +createBurger() IBurger
+        }
+        class McDonalds {
+            +createMilkshake() McShake
+            +createBurger() McBurger
+        }
+        class BurgerKing {
+            +createMilkshake() KingShake
+            +createBurger() KingBurger
+        }
+
+    }
+    namespace ProductA {
+        class IBurger {
+            <<interface>>
+        }
+        class KingBurger
+        class McBurger
+    }
+    namespace ProductB {
+        class IMilkshake {
+            <<interface>>
+        }
+        class KingShake
+        class McShake
+    }
+
+    IRestaurant <|.. McDonalds
+    IRestaurant <|.. BurgerKing
+    %% Products
+    IBurger <|.. KingBurger
+    IBurger <|.. McBurger
+    IMilkshake <|.. KingShake
+    IMilkshake <|.. McShake
+    %% Client
+    Client ..> IRestaurant : uses
+    Client ..> IBurger : uses
+    Client ..> IMilkshake : uses
+    %% Miscs
+    McDonalds ..> McShake : creates
+    McDonalds ..> McBurger : creates
+    BurgerKing ..> KingBurger : creates
+    BurgerKing ..> KingShake : creates
+
+    %% Notes
+	note "Goal: Provides an interface for creating families of objects that belong together"

@@ -1,0 +1,51 @@
+---
+title: Mediator
+config:
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Colleague {
+        class ITwitchChatter {
+            <<interface>>
+            +send(message: string)
+            +receiveMessage(message: string)
+        }
+        class TwitchChatter {
+            #mediator: IMediator
+            +send(message: string)*
+            +receiveMessage(message: string)*
+        }
+        class Chatter {
+            +send(message: string)
+            +receiveMessage(message: string)
+        }
+        class Staff {
+            +send(message: string)
+            +receiveMessage(message: string)
+        }
+    }
+    namespace Mediator {
+        class ITwitchMediator {
+            <<interface>>
+            +getChatterMessage(message: string)
+        }
+        class TwitchChat {
+            -chatters: List~ITwitchChatter~
+            +getChatterMessage(message: string)
+        }
+    }
+    class Client
+
+    ITwitchChatter <|.. TwitchChatter
+    TwitchChatter <|-- Chatter
+    TwitchChatter <|-- Staff
+    ITwitchMediator <|.. TwitchChat
+    Client --> ITwitchMediator: uses
+    %% Miscs
+    ITwitchChatter --> ITwitchMediator: has a
+    TwitchChat o--> Chatter: has
+    TwitchChat o--> Staff: has
+
+    %% Notes
+    note "Goal: Defines an object that facilitates how a set of objects interact"

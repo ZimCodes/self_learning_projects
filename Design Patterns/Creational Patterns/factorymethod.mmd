@@ -1,0 +1,40 @@
+---
+title: Factory Method
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Creator {
+        %% Creator
+        class IFarm {
+            <<interface>>
+            +createProduct() IProduct
+        }
+        class AlmondOrchard {
+            +createProduct() Almond
+        }
+        class DairyFarm {
+            +createProduct() Milk
+        }
+    }
+    namespace Product {
+        %% Product
+        class IProduct {
+            <<interface>>
+        }
+        class Milk
+        class Almond
+    }
+
+    IFarm <|.. AlmondOrchard
+    IFarm <|.. DairyFarm
+    %% Product
+    IProduct <|.. Milk
+    IProduct <|.. Almond
+    %% Miscs
+    IFarm ..> IProduct : creates
+
+    %% Notes
+    note for IFarm "createProduct() = new IProduct(); #Factory method"
+    note "Let subclasses decide what class to create using a method"  

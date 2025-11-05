@@ -1,0 +1,34 @@
+---
+title: Proxy
+config:
+    class:
+        hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Subject {
+        %% Subject
+        class IServer {
+            <<interface>>
+            +handleRequest()
+        }
+        class Server {
+            +handleRequest()
+        }
+    }
+    namespace Proxy {
+        class ProxyServer {
+            -server: IServer
+            -sanitizeData()
+            +handleRequest()
+        }
+    }
+
+    IServer <|.. Server
+    IServer <|.. ProxyServer
+    Client --> ProxyServer : uses
+    %% Miscs
+    ProxyServer --> Server : uses
+
+    %% Notes
+    note for ProxyServer "handleRequest(): server->handleRequest()"
+    note "Provides a placeholder object that controls access to another object; adding security, lazy-loading, or logging data(cache,logs,etc.)"

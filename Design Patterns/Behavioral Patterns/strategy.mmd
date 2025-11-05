@@ -1,0 +1,37 @@
+---
+title: Strategy
+config:
+  class:
+    hideEmptyMembersBox: true
+---
+classDiagram
+    namespace Strategy {
+        class IQuack {
+            <<interface>>
+            +quack()
+        }
+        class NoQuack {
+            +quack()
+        }
+        class AbnormalQuack {
+            +quack()
+        }
+        class SimpleQuack {
+            +quack()
+        }
+    }
+    namespace Context {
+        class Duck {
+            -duckQuack: IQuack
+            +quack()
+        }
+    }
+
+    IQuack <|.. AbnormalQuack
+    IQuack <|.. SimpleQuack
+    IQuack <|.. NoQuack
+    %% Miscs
+    Duck o--> IQuack : has a
+
+    %% Notes
+    note "Goal: Lets you change the algorithm without changing the object that uses it."
