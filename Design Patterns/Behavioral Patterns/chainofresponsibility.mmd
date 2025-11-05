@@ -36,7 +36,7 @@ classDiagram
     Receiver <|-- Artist
     Client --> IReceiver : uses
     %% Miscs
-    IReceiver o--> IReceiver
+    IReceiver o--> IReceiver : has a
 
     %% Notes
     note for Artist "handleRequest(): if can handle request. handle it, otherwise pass to next handler"
