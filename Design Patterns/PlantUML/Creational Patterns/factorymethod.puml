@@ -1,0 +1,52 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Creator {
+    abstract class IFarm {
+        +testProduct(): bool
+        {abstract}+createProduct(): IProduct
+    }
+    class AlmondOrchard {
+        +createProduct(): Almond
+    }
+    class DairyFarm {
+        +createProduct(): Milk
+    }
+}
+namespace Product {
+    interface IProduct
+    class Milk
+    class Almond
+}
+
+'Relations
+IFarm <|.. AlmondOrchard
+IFarm <|.. DairyFarm
+IProduct <|.. Milk
+IProduct <|.. Almond
+'Miscs
+AlmondOrchard ..> Almond:creates
+DairyFarm ..> Milk:creates
+
+'Notes
+note left of IFarm::testProduct
+<code>
+product = createProduct()
+person.tasteTest(product)
+person.smellTest(product)
+...
+return hasPassed
+end note
+
+note as N1
+<code>
+return new Milk()
+</code>
+end note
+DairyFarm::createProduct .left. N1
+
+note as Global
+Let subclasses decide what class to create using a method
+end note
+@enduml

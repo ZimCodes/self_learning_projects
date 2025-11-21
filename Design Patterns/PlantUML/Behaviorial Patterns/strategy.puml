@@ -1,0 +1,37 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Context {
+    class Duck {
+        -quackType: IQuack
+        +setQuack(quackStrategy: IQuack)
+        +quack()
+    }
+}
+namespace Strategy {
+    interface IQuack {
+        +quack()
+    }
+    class NoQuack {
+        +quack()
+    }
+    class AbnormalQuack {
+        +quack()
+    }
+    class SimpleQuack {
+        +quack()
+    }
+}
+
+'Relations
+IQuack <|.. NoQuack
+IQuack <|.. AbnormalQuack
+IQuack <|.. SimpleQuack
+Duck --> IQuack: uses
+
+'Notes
+note as Goal
+Lets you change the algorithm without changing the object that uses it.
+end note
+@enduml

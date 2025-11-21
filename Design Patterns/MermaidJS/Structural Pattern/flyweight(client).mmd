@@ -29,18 +29,13 @@ classDiagram
 	namespace FlyweightFactory {
 		%% FlyweightFactory
 		class InsectTypeFactory {
-			-insectTypes: List~IInsectType~
+			-insects: Map~string, IInsectType~
 			+getInsectType(name: string, color: string, canMetamorphosize: bool) InsectType
-			+createSpecialInsectType(latinName: string, canExplode: bool) SpecialInsectType
-		}	
+		}
 	}
 	%% Client
     class Client {
-        -insects: List~IInsectType~
-        -positions: List~Vector~
-        +addInsect(position:Vector, name: string, color: string, canMetamorphosize: bool)
-        +addSpecialInsect(position:Vector, latinName: string, canExplode: bool)
-        +move()
+        -insectFactory: InsectTypeFactory
     }
 	
 	
@@ -52,9 +47,9 @@ classDiagram
     InsectTypeFactory o--> IInsectType : has many
     
     %% Notes
-	note for InsectTypeFactory "addInsectType(): if insectTypes[key] == null\n insectType.add(new InsectType(...))"
+    note for InsectTypeFactory "getInsectType(): string key = name + _ + color + _ + canMetamorphosize\nMap.getAndAddIfNotExist(key,new InsectType(...))"
+    note for InsectTypeFactory "Only creates SharedFlyweights, NOT Unshared ones"
 	note "Goal: Minimize memory usage by sharing intrinsic states across similar objects, and keeping extrinsic states outside and supplied by the client/context."
     note "Intrinsic state: shared, immutable, heavy data"
     note "Extrinsic state: unique, mutable, lightweight data"
-    note "Flyweight is about sharing, NOT inheritance! Do NOT subclass Insect."
-    note "You can create classes that doesn't share. 'SpecialInsectType'" 
+    note "You can create classes that doesn't share. 'SpecialInsectType'"

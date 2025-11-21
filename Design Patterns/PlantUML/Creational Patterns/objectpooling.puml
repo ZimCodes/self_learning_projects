@@ -1,0 +1,46 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Object {
+    interface IObject {
+        +setActive(isActive: bool)
+        +isActive(): bool
+    }
+    class Arrow
+}
+namespace ObjectPool {
+    interface IObjectPool {
+        +getObject(): IObject
+    }
+    class Quiver {
+        -arrow: Arrow
+        -container: List<Arrow>
+        +Quiver(startAmount: int)
+        +getObject(): Arrow
+    }
+}
+class Client
+
+'Relations
+IObject <|.. Arrow
+IObjectPool <|.. Quiver
+Client --> IObjectPool : uses
+Client ..> IObject : uses
+IObjectPool x-right-> IObject
+
+'Notes
+note as N1
+<code>
+for arrow in container:
+    if (arrow is not active)
+        arrow.setActive(true)
+        return arrow
+</code>
+end note
+Quiver::getObject .. N1
+
+note as Global
+Reuse objects instead of creating & destroying them repeatedly.
+end note
+@enduml

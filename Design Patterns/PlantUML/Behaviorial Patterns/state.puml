@@ -1,0 +1,64 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Context {
+    class Phone {
+        -phoneState: IPhoneState
+        +turnOn()
+        +turnOff()
+        +toggleLock()
+        +call()
+    }
+}
+namespace State {
+    interface IPhoneState {
+        +turnOn(phone: Phone)
+        +turnOff(phone: Phone)
+        +toggleLock(phone: Phone)
+        +call(phone: Phone)
+    }
+    class OnState {
+        +turnOn(phone: Phone)
+        +turnOff(phone: Phone)
+        +toggleLock(phone: Phone)
+        +call(phone: Phone)
+    }
+    class OffState {
+        +turnOn(phone: Phone)
+        +turnOff(phone: Phone)
+        +toggleLock(phone: Phone)
+        +call(phone: Phone)
+    }
+    class ToggleLockState {
+        +turnOn(phone: Phone)
+        +turnOff(phone: Phone)
+        +toggleLock(phone: Phone)
+        +call(phone: Phone)
+    }
+    class CallState {
+        +turnOn(phone: Phone)
+        +turnOff(phone: Phone)
+        +toggleLock(phone: Phone)
+        +call(phone: Phone)
+    }
+}
+
+'Relations
+IPhoneState <|.. OnState
+IPhoneState <|.. OffState
+IPhoneState <|.. ToggleLockState
+IPhoneState <|.. CallState
+Phone o-- IPhoneState : has
+IPhoneState ..> Phone : uses
+
+'Notes
+note left of Phone::turnOn
+<code>
+phoneState->turnOn(this)
+</code>
+end note
+note as Goal
+Lets an object change its behavior when its internal state changes.
+end note
+@enduml

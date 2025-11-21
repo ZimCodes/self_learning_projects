@@ -1,0 +1,45 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace AbstractClass {
+    abstract class Pizza {
+        +preparePizza()
+        {abstract}#kneadDough()
+        {abstract}#spreadSauce()
+        {abstract}#addCheese()
+        {abstract}#addCondiments()
+        {abstract}#sprinkleToppings()
+        {abstract}#bake()
+    }
+}
+namespace ConcreteClass {
+    class DeepDish {
+        +preparePizza()
+        #kneadDough()
+        #spreadSauce()
+        #addCheese()
+        #addCondiments()
+        #sprinkleToppings()
+        #bake()
+    }
+}
+
+'Relations
+Pizza <|-- DeepDish
+
+'Notes
+note right of Pizza::preparePizza
+<b>>Template Method</b>
+---
+<code>
+kneadDough()
+spreadSauce()
+...
+bake()
+</code>
+end note
+note as Goal
+Defines the overall steps of an algorithm in a base class, but lets subclasses provide their own implementations for some of those steps.
+end note
+@enduml

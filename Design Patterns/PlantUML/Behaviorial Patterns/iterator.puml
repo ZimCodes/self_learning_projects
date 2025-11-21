@@ -1,0 +1,57 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Aggregate {
+    interface IAggregate {
+        +createIterator(): IIterator
+    }
+    class MemeCollection {
+        -memes: List<Meme>
+        +add(meme: Meme)
+        +pop(index:int): Meme
+        +count(): int
+        +createIterator(): MemeIterator
+    }
+}
+namespace Iterator {
+    interface IIterator {
+        +next(): IAggregate
+        +isDone(): bool
+        +first(): IAggregate
+        +currentItem(): IAggregate
+    }
+    class MemeIterator {
+        -memes: MemeCollection
+        +first(): Meme
+        +next(): Meme
+        +isDone(): bool
+        currentItem(): Meme
+    }
+}
+class Client
+
+'Relations
+IAggregate <|.. MemeCollection
+IIterator <|.. MemeIterator
+MemeIterator -right-> MemeCollection : uses
+MemeCollection::createIterator ..>  MemeIterator : creates
+Client ..> IIterator: uses
+Client --> Aggregate: uses
+
+'Notes
+note top of IAggregate
+Is the collection itself
+end note
+note top of IIterator
+Controls how //aggregate// is iterated
+end note
+note right of MemeCollection::createIterator
+<code>
+return MemeIterator(this)
+</code>
+end note
+note as Goal
+Provide a custom way to traverse a collection without exposing what data structure is used
+end note
+@enduml

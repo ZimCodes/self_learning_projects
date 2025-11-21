@@ -1,0 +1,47 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Component {
+    interface ISpecies {
+        +fight()
+    }
+    class Human {
+        +fight()
+    }
+    class Orc {
+        +fight()
+    }
+}
+
+namespace Decorator {
+    abstract class BuffDecorator {
+        #species: ISpecies
+        {abstract}+fight()
+    }
+    class MagicResist {
+        +fight()
+    }
+    class DoubleExp {
+        +fight()
+    }
+}
+
+'Relations
+ISpecies <|.. Human
+ISpecies <|.. Orc
+ISpecies <|.. BuffDecorator
+BuffDecorator <|-- MagicResist
+BuffDecorator <|-- DoubleExp
+BuffDecorator::species o-- "1" ISpecies : has
+
+'Notes
+note left of DoubleExp::fight
+<code>
+species->fight()
+</code>
+end note
+note as Goal
+Dynamically add new features to an object without changing its original code, by wrapping it.
+end note
+@enduml

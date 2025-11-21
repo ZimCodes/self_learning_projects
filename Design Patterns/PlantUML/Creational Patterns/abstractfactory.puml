@@ -1,0 +1,51 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Factory {
+    interface IRestaurant {
+        +createMilkshake(): IMilkshake
+        +createBurger(): IBurger
+    }
+    class McDonalds {
+        +createMilkshake(): McShake
+        +createBurger(): McBurger
+    }
+    class BurgerKing {
+        +createMilkshake(): KingShake
+        +createBurger(): KingBurger
+    }
+}
+namespace ProductA {
+    interface IBurger
+    class McBurger
+    class KingBurger
+}
+namespace ProductB {
+    interface IMilkshake
+    class McShake
+    class KingShake
+}
+class Client
+
+'Relations
+IRestaurant <|.. McDonalds
+IRestaurant <|.. BurgerKing
+IBurger <|.. KingBurger
+IBurger <|.. McBurger
+IMilkshake <|.. KingShake
+IMilkshake <|.. McShake
+Client --> IRestaurant : uses
+Client --> IBurger : uses
+Client --> IMilkshake : uses
+'Miscs
+McDonalds::createBurger ..> "1" McBurger:creates
+McDonalds::createMilkshake ..> "1" McShake:creates
+BurgerKing::createBurger ..> "1" KingBurger:creates
+BurgerKing::createMilkshake ..> "1" KingShake:creates
+
+'Notes
+note as Global
+"Provides an interface for creating families of objects that belong together"
+end note
+@enduml

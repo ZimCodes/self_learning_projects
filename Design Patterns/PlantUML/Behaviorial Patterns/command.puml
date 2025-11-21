@@ -1,0 +1,57 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Receiver {
+    class Light {
+        +toggleState(isOn: bool)
+        +alterColor(color:string)
+    }
+}
+namespace Command {
+    interface ICommand {
+        +execute()
+    }
+    abstract class LightCommand {
+        #light: Light
+        {abstract}+execute()
+    }
+    class LightOnCommand {
+        +execute()
+    }
+    class LightOffCommand {
+        +execute()
+    }
+    class LightColorChangeCommand {
+        +LightColorChangeCommand(light: Light, color: string)
+        +execute()
+    }
+}
+namespace Invoker {
+    class RemoteControl {
+        -command: ICommand
+        +setCommand(command: ICommand)
+    }
+}
+class Client
+
+ICommand <|.. LightCommand
+LightCommand <|-- LightOffCommand
+LightCommand <|-- LightOnCommand
+LightCommand <|-- LightColorChangeCommand
+ICommand o-left- "1" Light: has
+RemoteControl o-- "1" ICommand: has
+Client ..> Light: setup
+Client ..> ICommand: setup
+Client -right-> Invoker: uses
+
+'Notes
+note right of LightCommand::execute
+<code>
+light->operation()
+</code>
+end note
+note as Goal
+Turns a request/action into an object. Can also undo commands.
+end note
+@enduml

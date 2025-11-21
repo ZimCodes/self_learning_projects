@@ -9,6 +9,7 @@ classDiagram
         %% Creator
         class IFarm {
             <<interface>>
+            +testProduct()
             +createProduct() IProduct
         }
         class AlmondOrchard {
@@ -36,5 +37,6 @@ classDiagram
     IFarm ..> IProduct : creates
 
     %% Notes
-    note for IFarm "createProduct() = new IProduct(); #Factory method"
+    note for IFarm "createProduct(): return new IProduct(); #Factory method"
+    note for IFarm "testProduct(): product = createProduct();\ndo some stuff with the product..."
     note "Let subclasses decide what class to create using a method"  

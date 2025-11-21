@@ -1,0 +1,37 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Subject {
+    interface IServer {
+        +handleRequest()
+    }
+    class Server {
+        +handleRequest()
+    }
+}
+namespace Proxy {
+    class ProxyServer {
+        -server: IServer
+        -sanitizeData(data:Request)
+        +handleRequest()
+    }
+}
+class Client
+
+'Relations
+IServer <|.. Server
+IServer <|.. ProxyServer
+Client --> ProxyServer: uses
+ProxyServer::server o-- Server
+
+'Notes
+note right of ProxyServer::handleRequest
+<code>
+server->handleRequest()
+</code>
+end note
+note as Goal
+Provides a placeholder object that controls access to another object; adding <u>security</u>, <u>lazy-loading,</u> or <u>logging</u> data//(cache,logs,etc.)//
+end note
+@enduml

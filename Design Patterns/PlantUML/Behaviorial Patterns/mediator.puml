@@ -1,0 +1,49 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Colleague {
+    interface IChatter {
+        +send(message: string)
+        +receive(message: string)
+    }
+    abstract class Chatter {
+        #mediator: IMediator
+        {abstract}+send(message: string)
+        {abstract}+receive(message: string)
+    }
+    class TwitchChatter {
+        +send(message: string)
+        +receive(message: string)
+    }
+    class Staff {
+        +send(message: string)
+        +receive(message: string)
+    }
+}
+namespace Mediator {
+    interface IMediator {
+        +sendMessage(sender: IChatter, message: string)
+        +addChatter(chatter: IChatter)
+    }
+    class TwitchChat {
+        -chatters: List<IChatter>
+        +sendMessage(sender: IChatter, message: string)
+        +addChatter(chatter: IChatter)
+    }
+}
+
+'Relations
+IChatter <|.. Chatter
+Chatter <|-- Staff
+Chatter <|-- TwitchChatter
+IMediator <|.. TwitchChat
+IChatter o-right- "many" IMediator
+TwitchChat --> Staff: uses
+TwitchChat --> TwitchChatter: uses
+
+'Notes
+note as Goal
+Defines an object that facilitates how a set of objects interact
+end note
+@enduml

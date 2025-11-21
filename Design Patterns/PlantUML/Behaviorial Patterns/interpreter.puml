@@ -1,0 +1,43 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Expression {
+   interface IExpression {
+       +interpret(): string
+   }
+   namespace TerminalExpression {
+       class LiteralStringExpression {
+           +LiteralStringExpression(literalString: string)
+           +interpret(): string
+       }
+       class NumberExpression {
+           +Number(number: int)
+           +interpret(): string
+       }
+   }
+   namespace NonTerminalExpression {
+       class MultiplyExpression {
+           -left: IExpression
+           -right: IExpression
+           +MultiplyExpression(left:IExpression, right:IExpression)
+           +interpret(): string
+       }
+   }
+}
+class Client
+
+'Relations
+IExpression <|.. LiteralStringExpression
+IExpression <|.. NumberExpression
+IExpression <|.. MultiplyExpression
+Client --> IExpression: uses
+
+'Notes
+note as N1
+This expression: <u>LiteralString * (Number | LiteralString)</u>
+end note
+note as Goal
+Turns a language's grammar rules into classes, so you can parse & evaluate expressions step-by-step
+end note
+@enduml

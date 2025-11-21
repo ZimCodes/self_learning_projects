@@ -1,0 +1,51 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Component {
+    interface ICandy {
+        +make()
+    }
+}
+namespace Leaf {
+    class JawBreaker {
+        +make()
+    }
+    class ChocolateBar {
+        +make()
+    }
+    class Gum {
+        +make()
+    }
+}
+namespace Composite {
+    class CandyBag {
+        -candies: List<ICandy>
+        +make()
+        +add(candy: ICandy)
+        +remove(candy: ICandy)
+        +getCandy(index: int): ICandy
+    }
+}
+class Client
+
+'Relations
+ICandy <|.. ChocolateBar
+ICandy <|.. JawBreaker
+ICandy <|.. Gum
+ICandy <|.. CandyBag
+CandyBag::candies o-- "many" ICandy: has
+Client --> ICandy : uses
+
+'Notes
+note as N1
+<code>
+for c in candies:
+    g->make()
+</code>
+end note
+N1 .. CandyBag::make
+note as Goal
+Treat individual & group of objects uniformly
+end note
+@enduml

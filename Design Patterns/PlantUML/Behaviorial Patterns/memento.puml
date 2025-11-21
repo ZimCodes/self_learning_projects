@@ -1,0 +1,46 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Originator {
+    class Player {
+        -totalHealth: int
+        -totalMana: int
+        -companions: List<string>
+        +saveState(): PlayerState
+        +loadState(playerState: PlayerState)
+    }
+}
+namespace Memento {
+    interface IMemento {}
+    class PlayerState {
+        -totalHealth: int
+        -totalMana: int
+        -companions: List<string>
+        +Memento(totalHealth:int,totalMana: int,companions: List<string>
+        +getTotalHealth(): int
+        +getTotalMana(): int
+        getCompanions(): List<string>
+    }
+}
+namespace CareTaker {
+    class Game {
+        -memento: IMemento
+        +setMemento(memento: IMemento)
+        +getMemento(): PlayerState
+    }
+}
+
+'Relations
+IMemento <|.. PlayerState
+Player .right.> PlayerState: creates/uses
+Game o-left- PlayerState
+
+'Notes
+note top of CareTaker
+Caretakers should <b>NOT</b> be able to use anything(methods too!) from Memento!
+end note
+note as Goal
+Let an object save & restore its state without exposing its internal details.
+end note
+@enduml

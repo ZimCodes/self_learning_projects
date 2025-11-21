@@ -1,0 +1,43 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Target {
+    interface IBubblegum {
+        +chew()
+    }
+}
+namespace Adaptee {
+    class Ship {
+        +cruise()
+    }
+}
+namespace Adapter {
+    class BubblegumShip {
+        -ship: Ship
+        +chew()
+    }
+}
+
+'Relations
+IBubblegum <|.. BubblegumShip
+BubblegumShip::ship o-right- Ship
+
+'Notes
+note as NChew
+<code>
+ship->cruise()
+</code>
+end note
+NChew --> BubblegumShip::chew
+note top of Target
+The interface the //Client// uses
+end note
+note top of Adaptee
+The class with useful functionality,
+but an incompatible interface.
+end note
+note top of Adapter
+Lets you use an //Adaptee// as if it were a //Target//
+end note
+@enduml

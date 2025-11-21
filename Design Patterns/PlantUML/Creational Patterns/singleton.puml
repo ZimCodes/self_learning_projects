@@ -1,0 +1,25 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+class Singleton {
+    {static}-instance: Singleton
+    -Singleton()
+    {static}+getInstance(): Singleton
+}
+note left of Singleton::Singleton
+Constructor **must** be //private//!
+end note
+
+note right of Singleton::getInstance
+<code>
+if (instance == null) {
+    instance = new Singleton()
+}
+return instance
+end note
+
+note top of Singleton
+Ensure a class only has 1 instance & provide global access to it.
+end note
+@enduml

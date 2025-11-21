@@ -9,9 +9,6 @@ classDiagram
 		%% Component
 		class ICandy {
 			<<interface>>
-			+add(candy: ICandy)
-			+remove(candy: ICandy)
-			+getCandy(index: int) ICandy
 			+make()
 		}
 	}
@@ -30,7 +27,7 @@ classDiagram
 	namespace Composite {
 		%% Composite
 		class CandyBag {
-			#candies List~ICandy~
+			-candies List~ICandy~
 			+add(candy: ICandy)
 			+remove(candy: ICandy)
 			+getCandy(index: int) ICandy

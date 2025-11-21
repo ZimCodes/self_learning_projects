@@ -1,0 +1,65 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Flyweight {
+    interface IInsectType {
+        +move(position: Vector, newPosition: Vector)
+    }
+    namespace SharedFlyweight {
+        class InsectType {
+            +name: string
+            +color: string
+            +canMetamorphosize: bool
+            +move(position: Vector, newPosition: Vector)
+        }
+    }
+    namespace UnsharedFlyweight {
+        class SpecialInsectType {
+            -canExplode: bool
+            -scientificName: string
+            +move(position: Vector, newPosition: Vector)
+        }
+    }
+}
+namespace FlyweightFactory {
+    class InsectFactory {
+        -insects: Map<string,IInsectType>
+        +getInsectType(name: string, color: string, canMetamorphosize: bool): InsectType
+    }
+}
+class Client {
+    +insectFactory: InsectFactory
+}
+
+'Relations
+IInsectType <|.. InsectType
+IInsectType <|.. SpecialInsectType
+InsectFactory o-- "many" SharedFlyweight : has >
+Client --> IInsectType : uses
+Client -right-> InsectFactory: uses
+
+'Notes
+note right of InsectFactory::getInsectType
+<code>
+string key = name + "_" + color + "_" + canMetamorphosize
+if (insects[key] not exists) {
+    insects.put(key,new InsectType("caterpillar","blue",true))
+}
+return insects[key]
+</code>
+end note
+note bottom of FlyweightFactory
+Only creates //SharedFlyweights//
+end note
+
+note right of InsectType::name
+<b>Intrinsic states</b>: shared, immutable, heavy data
+end note
+note right of InsectType::move
+<b>Extrinsic states</b>: unique, mutable, lightweight data
+end note
+note as Goal
+Minimize memory usage by sharing intrinsic states across similar objects, and keeping extrinsic states outside and supplied by the client/context.
+end note
+@enduml

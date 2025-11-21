@@ -1,0 +1,97 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Product {
+    interface IHumanoid {
+        +setHead(string head)
+        +setTorso(string torso)
+        +setArms(string arms)
+        +setLegs(string legs)
+        +setFeet(string feet)
+    }
+    abstract class Humanoid {
+            #head: string
+            #torso: string
+            #arms: string
+            #legs: string
+            #feet: string
+            {abstract}+getHead(): string
+            {abstract}+getTorso(): string
+            {abstract}+getArms(): string
+            {abstract}+getLegs(): string
+            {abstract}+getFeet(): string
+    }
+    class Robot
+    class Smurf
+}
+namespace Builder {
+    interface IHumanoidBuilder {
+        +reset()
+        +buildHead()
+        +buildTorso()
+        +buildArms()
+        +buildLegs()
+        +getResult() Humanoid
+    }
+    abstract class HumanoidBuilder {
+        #humanoid: IHumanoid
+    }
+    class RobotBuilder {
+        +reset()
+        +buildHead()
+        +buildTorso()
+        +buildArms()
+        +buildLegs()
+        +getResult() Humanoid
+    }
+    class SmurfBuilder {
+        +reset()
+        +buildHead()
+        +buildTorso()
+        +buildArms()
+        +buildLegs()
+        +getResult() Humanoid
+    }
+}
+namespace Director {
+    class TypeA {
+        +makeTinMan(builder: IHumanBuilder) : Robot
+        +makeGrandpaSmurf(builder: IHumanoidBuilder) : Smurf
+    }
+    class TypeB {
+        -builder: IHumanoidBuilder
+        +construct(type: string): Humanoid
+        +changeBuilder(builder: IHumanoidBuilder)
+    }
+}
+
+'Relations
+IHumanoid <|.. Humanoid
+Humanoid <|-- Smurf
+Humanoid <|-- Robot
+IHumanoidBuilder <|.. HumanoidBuilder
+HumanoidBuilder <|-- SmurfBuilder
+HumanoidBuilder <|-- RobotBuilder
+Director.TypeA ..> IHumanoidBuilder: uses
+Director.TypeB --> IHumanoidBuilder: uses
+'Miscs
+RobotBuilder ..> Robot: creates
+SmurfBuilder ..> Smurf: creates
+
+'Notes
+note left of Director.TypeB::construct
+<code>
+if (type == "simple") {
+    builder.buildStepA()
+} else {
+    builder.buildStepB()
+    builder.buildStepZ()
+    builder.buildStepJ()
+}
+end note
+note top of Director: Tells how an object should be assembled!
+note as Global
+Separates the assembly of an object from its creation //(i.e. creating its individual parts)//
+end note
+@enduml

@@ -1,0 +1,50 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Handler {
+    interface IReceiver {
+       +handleRequest(request: string)
+    }
+    abstract class Receiver {
+        #receiver: IReceiver
+        {abstract}+handleRequest(request: string)
+    }
+    class Doctor {
+       +handleRequest(request: string)
+    }
+    class Lawyer {
+        +handleRequest(request: string)
+    }
+    class Firefighter {
+        +handleRequest(request: string)
+    }
+    class Artist {
+        +handleRequest(request: string)
+    }
+}
+class Client
+
+IReceiver <|.. Receiver
+Receiver <|-- Doctor
+Receiver <|-- Lawyer
+Receiver <|-- Firefighter
+Receiver <|-- Artist
+Client --> IReceiver : uses
+'Miscs
+IReceiver "1" o-- "1" IReceiver : has
+
+'Notes
+note left of Artist::handleRequest
+<code>
+if (can handle request) {
+    performOperation(request)
+} else {
+    this->#receiver.handleRequest(request)
+}
+</code>
+end note
+note as Global
+Lets you send a request along a chain of handlers/receivers
+end note
+@enduml

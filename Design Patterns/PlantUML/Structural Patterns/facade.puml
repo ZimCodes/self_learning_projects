@@ -1,0 +1,30 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Facade {
+    class Checkout {
+        +checkoutItems()
+    }
+}
+namespace Subsystem {
+        class Payment
+        class Inventory
+        class Shipping
+        class Notification
+        class Cart
+        class Discounts
+}
+
+'Relations
+Checkout ..> Payment
+Checkout ..> Inventory
+Checkout ..> Shipping
+Checkout ..> Notification
+Checkout ..> Cart
+Checkout ..> Discounts
+
+note as Goal
+Provides a simple interface to a complex subsystem, making it easier to use.
+end note
+@enduml

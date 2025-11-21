@@ -1,0 +1,56 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Element {
+    interface IElement {
+        +accept(visitor: IVisitor)
+    }
+    class Liquor {
+        +accept(visitor: IVisitor)
+    }
+    class Tobacco {
+        +accept(visitor: IVisitor)
+    }
+    class Necessity {
+        +accept(visitor: IVisitor)
+    }
+}
+namespace Visitor {
+    interface IVisitor {
+        +visitLiquor(liquor: Liquor)
+        +visitTobacco(tobacco: Tobacco)
+        +visitNecessity(necessity: Necessity)
+    }
+    class TaxVisitor {
+        +visitLiquor(liquor: Liquor)
+        +visitTobacco(tobacco: Tobacco)
+        +visitNecessity(necessity: Necessity)
+    }
+}
+
+'Relations
+IElement <|.. Tobacco
+IElement <|.. Liquor
+IElement <|.. Necessity
+IVisitor <|.. TaxVisitor
+IElement ..> IVisitor : uses
+IVisitor ..> Liquor: uses
+IVisitor ..> Tobacco: uses
+IVisitor ..> Necessity : uses
+
+'Notes
+note as N_liquor_accept
+<code>
+visitor->visitLiquor(this)
+</code>
+end note
+N_liquor_accept -- Liquor::accept
+note as Goal
+Add new methods to objects without changing their classes.
+end note
+note as N_Tip
+<b>Good</b>: Easy to add new operations //(methods)//. Just add a new //IVisitor//
+<b>Bad</b>: Hard to add new elements. If add new //IElement//, every visitor must be updated!
+end note
+@enduml

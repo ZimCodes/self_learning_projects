@@ -1,0 +1,47 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Abstraction {
+    abstract class Door {
+        -impl: IMaterial
+        +applyMaterial()
+    }
+    class RevolvingDoor
+    class DutchDoor
+    class RollerDoor
+}
+namespace Implementation {
+    interface IMaterial {
+        +implementMaterial()
+    }
+    class Glass
+    class Wood
+    class Steel
+}
+class Client
+
+'Relations
+Door <|-- RevolvingDoor
+Door <|-- DutchDoor
+Door <|-- RollerDoor
+IMaterial <|.. Glass
+IMaterial <|.. Wood
+IMaterial <|.. Steel
+Door x-right- IMaterial
+Client --> Door : uses
+
+'Notes
+note as N1
+<code>
+impl->implementMaterial()
+</code>
+end note
+N1 -- Door::applyMaterial
+note as Goal
+Lets different abstractions be paired with different implementations, so they vary independently
+end note
+note as Tip
+Tip: If you suffer a //'class explosion'//, use this pattern!
+end note
+@enduml

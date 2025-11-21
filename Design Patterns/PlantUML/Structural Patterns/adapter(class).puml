@@ -1,0 +1,44 @@
+'idea.partialRender
+@startuml
+hide empty members
+namespace Target {
+    interface IBubblegum {
+        +chew()
+    }
+}
+namespace Adaptee {
+    class Ship {
+        +cruise()
+    }
+}
+namespace Adapter {
+    class BubblegumShip {
+        +chew()
+    }
+}
+
+'Relations
+IBubblegum <|.. BubblegumShip
+Ship <|-- BubblegumShip
+Client --> IBubblegum : uses
+
+'Notes
+note right of BubblegumShip
+<code>
+this->cruise()
+</code>
+end note
+note as Goal
+Allows incompatible interfaces to work together.
+end note
+note top of Target
+The interface the Client uses
+end note
+note right of Adaptee
+The class with useful functionality,
+but an incompatible interface.
+end note
+note top of Adapter
+Lets you use an //Adaptee// as if it were a //Target//
+end note
+@enduml

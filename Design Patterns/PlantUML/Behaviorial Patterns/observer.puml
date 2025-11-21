@@ -1,0 +1,68 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+enum PacState {
+    CHOMP
+    DEAD
+    POWER_UP
+}
+namespace Subject {
+    abstract class ISubject {
+        -observers: List<IObserver>
+        +attach(observer: IObserver)
+        +detach(observer: IObserver)
+        +notify()
+    }
+    class Pacman {
+        -pacState: PacState
+        +attach(observer: IObserver)
+        +detach(observer: IObserver)
+        +notify()
+        +setState(newState: PacState)
+        +getState(): PacState
+    }
+}
+namespace Observer {
+    interface IObserver {
+        +update(subject: ISubject)
+    }
+    class Ghost {
+        -observerState: PacState
+        -color: string
+        +update(pacman: Pacman)
+    }
+}
+
+'Relations
+ISubject <|-- Pacman
+IObserver <|.. Ghost
+ISubject::observers -right-> "many" IObserver: notify
+Ghost::update .left.> Pacman
+
+'Notes
+note as N_notify
+<code>
+for o in observers:
+    o->update(this)
+</code>
+end note
+N_notify -- ISubject::notify
+note as N_setState
+<code>
+this->pacState = newState
+this->notify()
+end note
+N_setState -up- Pacman::setState
+note as N_update
+//This is optional//
+---
+<code>
+this->observerState = pacman->getState()
+</code>
+end note
+N_update -right- Ghost::update
+note as N_Goal
+Lets 1 object automatically notify a group of other objects whenever its state changes.
+end note
+@enduml

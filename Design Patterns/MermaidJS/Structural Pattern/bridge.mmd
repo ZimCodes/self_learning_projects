@@ -7,8 +7,8 @@ config:
 classDiagram
 	namespace Abstraction {
 		%% Abstraction
-		class IDoor {
-			<<interface>>
+		class Door {
+			<<abstract>>
 			-impl: IMaterial
 			+applyMaterial()
 		}
@@ -27,19 +27,19 @@ classDiagram
         class Steel
     }
 
-    IDoor <|.. RevolvingDoor
-    IDoor <|.. DutchDoor
-    IDoor <|.. RollerDoor
+    Door <|.. RevolvingDoor
+    Door <|.. DutchDoor
+    Door <|.. RollerDoor
     IMaterial <|.. Glass
     IMaterial <|.. Wood
     IMaterial <|.. Steel
     %% Client
-    Client --> IDoor : uses
+    Client --> Door : uses
     %% Misc
-    IDoor o--> IMaterial : has a
+    Door x--> IMaterial : owns a
 
     %% Notes
-    note for IDoor "applyMaterial(): impl->implementMaterial()"
+    note for Door "applyMaterial(): impl->implementMaterial()"
     note "Goal: Lets different abstractions be paired with different implementations, so both can evolve independently"
     note "Abstraction: What the client sees & uses"
     note "Implementation: defines how it's done"

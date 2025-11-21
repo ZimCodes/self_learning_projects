@@ -1,0 +1,31 @@
+'idea.partialRender
+@startuml
+hide empty members
+
+namespace Prototype {
+    interface IClone {
+        +clone() : IClone
+    }
+    class Cell {
+        +clone(): Cell
+    }
+    class Aphid {
+        +clone(): Aphid
+    }
+    class Bacteria {
+        +clone(): Bacteria
+    }
+}
+class Client
+
+'Relations
+IClone <|.. Cell
+IClone <|.. Aphid
+IClone <|.. Bacteria
+Client --> IClone : uses
+
+'Notes
+note as Global
+Create new objects by cloning from existing ones and tweaking them.
+end note
+@enduml
